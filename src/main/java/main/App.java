@@ -213,6 +213,7 @@ class HttpsClientBuilder {
             try {
                 SSLContext sc = SSLContext.getInstance("SSL");
                 sc.init(null, trustAllCerts, new SecureRandom());
+                HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
             } catch (NoSuchAlgorithmException | KeyManagementException e) {
                 System.out.println(e.getMessage());
                 throw e;
