@@ -17,7 +17,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-/** 빌더랑 같은 패키지에 넣고 접근제한자는 default로 처리 */
+/** 빌더랑 같은 패키지에 넣고 생성자 및 설정 메서드는 default로 처리 */
 public class HttpsClient {
     private URL url;
     HttpsURLConnection httpsConn;
