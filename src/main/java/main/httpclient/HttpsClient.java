@@ -104,6 +104,24 @@ public class HttpsClient {
     }
 
     /**
+     * 에러전문 확인
+     * @return
+     * @throws Exception
+     */
+    public String getErrResponseBody() throws Exception {
+        try (BufferedReader input = new BufferedReader(new InputStreamReader(httpsConn.getErrorStream(), "UTF-8"))) {
+            String line;
+            StringBuffer buffer = new StringBuffer();
+            while ((line = input.readLine()) != null) {
+                buffer.append(line);
+            }
+            return buffer.toString();
+        } catch (IOException e) {
+            throw e;
+        }
+    }
+
+    /**
      * 캐쉬 사용 여부
      * 
      * @param isUse
